@@ -2,6 +2,7 @@ package org.example.core.model
 
 import org.example.core.style.Modifier
 import org.example.core.style.ModifierImpl
+import org.example.core.style.css.StyleModifier
 
 class Base : BodyTag("base")
 class BaseFont : BodyTag("basefont")
@@ -112,7 +113,43 @@ class Spacer : BodyTag("spacer")
 class Span : BodyTag("span")
 class Strike : BodyTag("strike")
 class Strong : BodyTag("strong")
-class Style : HeadTag("style")
+class Style : HeadTag("style") {
+    private val styleRules = StringBuilder()
+
+    override operator fun String.unaryPlus() {
+        styleRules.append(this).append("\n")
+    }
+
+    fun rule(
+        selector: String? = null,
+        id: String? = null,
+        classNames: List<String> = emptyList(),
+        init: StyleModifier.() -> Unit
+    ) {
+        val fullSelector = buildSelector(selector ?: "", id, classNames)
+        val modifier = StyleModifier()
+        modifier.init()
+        styleRules.append("$fullSelector { ${modifier.buildStyle()} }\n")
+    }
+
+    private fun buildSelector(baseSelector: String, id: String?, classNames: List<String>): String {
+        val idSelector = id?.let { "#$it" } ?: ""
+        val classSelector = if (classNames.isNotEmpty()) classNames.joinToString(".", ".") else "" // Fix: Only add "." if classNames is not empty
+
+        val combinedSelector = "$baseSelector$idSelector$classSelector".trim()
+
+        // Fix: Remove any trailing "." resulting from empty baseSelector and only id/classes
+        return if (combinedSelector.endsWith(".")) combinedSelector.dropLast(1) else combinedSelector
+    }
+
+
+    override fun render(builder: StringBuilder, indent: String) {
+        builder.append("$indent<style>\n")
+        builder.append(styleRules.toString())  // Append the styles
+        builder.append("$indent</style>\n")
+    }
+}
+
 class Sub : BodyTag("sub")
 class Summary : BodyTag("summary")
 class Sup : BodyTag("sup")
