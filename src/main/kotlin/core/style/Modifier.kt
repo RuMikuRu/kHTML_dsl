@@ -81,7 +81,73 @@ interface Modifier {
     fun margin(value: String): Modifier
     fun backgroundColor(color: String): Modifier
     fun fontSize(size: String): Modifier
+    fun alignContent(value: String): Modifier
+    fun alignItems(value: String): Modifier
+    fun alignSelf(value: String): Modifier
+    fun aspectRatio(value: String): Modifier
+    fun backfaceVisibility(value: String): Modifier
+    fun backgroundBlendMode(value: String): Modifier
+    fun backgroundPositionX(value: String): Modifier
+    fun backgroundPositionY(value: String): Modifier
+    fun borderBottomLeftRadius(value: String): Modifier
+    fun borderBottomRightRadius(value: String): Modifier
+    fun borderImageOutset(value: String): Modifier
+    fun borderImageRepeat(value: String): Modifier
+    fun borderImageSlice(value: String): Modifier
+    fun borderImageSource(value: String): Modifier
+    fun borderImageWidth(value: String): Modifier
+    fun borderTopLeftRadius(value: String): Modifier
+    fun borderTopRightRadius(value: String): Modifier
+    fun captionSide(value: String): Modifier
+    fun caretColor(value: String): Modifier
+    fun boxSizing(value: String): Modifier
+    fun columnCount(value: String): Modifier
+    fun columnFill(value: String): Modifier
+    fun columnGap(value: String): Modifier
+    fun columnRuleColor(value: String): Modifier
+    fun columnRuleStyle(value: String): Modifier
+    fun columnRuleWidth(value: String): Modifier
+    fun columnSpan(value: String): Modifier
+    fun columnWidth(value: String): Modifier
+    fun flex(value: String): Modifier
+    fun flexBasis(value: String): Modifier
+    fun flexDirection(value: String): Modifier
+    fun flexFlow(value: String): Modifier
+    fun flexGrow(value: String): Modifier
+    fun flexShrink(value: String): Modifier
+    fun flexWrap(value: String): Modifier
+    fun gridAutoColumns(value: String): Modifier
+    fun gridAutoFlow(value: String): Modifier
+    fun gridAutoRows(value: String): Modifier
+    fun gridColumn(value: String): Modifier
+    fun gridColumnEnd(value: String): Modifier
+    fun gridColumnStart(value: String): Modifier
+    fun gridRow(value: String): Modifier
+    fun gridRowEnd(value: String): Modifier
+    fun gridRowGap(value: String): Modifier
+    fun gridRowStart(value: String): Modifier
+    fun gridTemplateColumns(value: String): Modifier
+    fun gridTemplateRows(value: String): Modifier
+    fun justifyContent(value: String): Modifier
+    fun justifyItems(value: String): Modifier
+    fun justifySelf(value: String): Modifier
+    fun order(value: String): Modifier
+    fun overflowX(value: String): Modifier
+    fun overflowY(value: String): Modifier
+    fun textOverflow(value: String): Modifier
+    fun wordBreak(value: String): Modifier
+    fun boxShadow(value: String): Modifier
+    fun transform(value: String): Modifier
+    fun transformOrigin(value: String): Modifier
+    fun transition(value: String): Modifier
+    fun transitionDelay(value: String): Modifier
+    fun transitionDuration(value: String): Modifier
+    fun transitionProperty(value: String): Modifier
+    fun transitionTimingFunction(value: String): Modifier
+
     fun buildStyle(): String
+
+
 
     companion object {
         val Default: Modifier = ModifierImpl(emptyMap())
@@ -276,6 +342,258 @@ class ModifierImpl(private val styles: Map<String, String> = emptyMap()) : Modif
 
     override fun fontSize(size: String): Modifier {
         return copyWith("font-size" to size)
+    }
+
+    override fun alignContent(value: String): Modifier {
+        return copyWith("align-content" to value)
+    }
+
+    override fun alignItems(value: String): Modifier {
+        return copyWith("align-items" to value)
+    }
+
+    override fun alignSelf(value: String): Modifier {
+        return copyWith("align-self" to value)
+    }
+
+    override fun aspectRatio(value: String): Modifier {
+        return copyWith("aspect-ratio" to value)
+    }
+
+    override fun backfaceVisibility(value: String): Modifier {
+        return copyWith("backface-visibility" to value)
+    }
+
+    override fun backgroundBlendMode(value: String): Modifier {
+        return copyWith("background-blend-mode" to value)
+    }
+
+    override fun backgroundPositionX(value: String): Modifier {
+        return copyWith("background-position-x" to value)
+    }
+
+    override fun backgroundPositionY(value: String): Modifier {
+        return copyWith("background-position-y" to value)
+    }
+
+    override fun borderBottomLeftRadius(value: String): Modifier {
+        return copyWith("border-bottom-left-radius" to value)
+    }
+
+    override fun borderBottomRightRadius(value: String): Modifier {
+        return copyWith("border-bottom-right-radius" to value)
+    }
+
+    override fun borderImageOutset(value: String): Modifier {
+        return copyWith("border-image-outset" to value)
+    }
+
+    override fun borderImageRepeat(value: String): Modifier {
+        return copyWith("border-image-repeat" to value)
+    }
+
+    override fun borderImageSlice(value: String): Modifier {
+        return copyWith("border-image-slice" to value)
+    }
+
+    override fun borderImageSource(value: String): Modifier {
+        return copyWith("border-image-source" to value)
+    }
+
+    override fun borderImageWidth(value: String): Modifier {
+        return copyWith("border-image-width" to value)
+    }
+
+    override fun borderTopLeftRadius(value: String): Modifier {
+        return copyWith("border-top-left-radius" to value)
+    }
+
+    override fun borderTopRightRadius(value: String): Modifier {
+        return copyWith("border-top-right-radius" to value)
+    }
+
+    override fun captionSide(value: String): Modifier {
+        return copyWith("caption-side" to value)
+    }
+
+    override fun caretColor(value: String): Modifier {
+        return copyWith("caret-color" to value)
+    }
+
+    override fun boxSizing(value: String): Modifier {
+        return copyWith("box-sizing" to value)
+    }
+
+    override fun columnCount(value: String): Modifier {
+        return copyWith("column-count" to value)
+    }
+
+    override fun columnFill(value: String): Modifier {
+        return copyWith("column-fill" to value)
+    }
+
+    override fun columnGap(value: String): Modifier {
+        return copyWith("column-gap" to value)
+    }
+
+    override fun columnRuleColor(value: String): Modifier {
+        return copyWith("column-rule-color" to value)
+    }
+
+    override fun columnRuleStyle(value: String): Modifier {
+        return copyWith("column-rule-style" to value)
+    }
+
+    override fun columnRuleWidth(value: String): Modifier {
+        return copyWith("column-rule-width" to value)
+    }
+
+    override fun columnSpan(value: String): Modifier {
+        return copyWith("column-span" to value)
+    }
+
+    override fun columnWidth(value: String): Modifier {
+        return copyWith("column-width" to value)
+    }
+
+    override fun flex(value: String): Modifier {
+        return copyWith("flex" to value)
+    }
+
+    override fun flexBasis(value: String): Modifier {
+        return copyWith("flex-basis" to value)
+    }
+
+    override fun flexDirection(value: String): Modifier {
+        return copyWith("flex-direction" to value)
+    }
+
+    override fun flexFlow(value: String): Modifier {
+        return copyWith("flex-flow" to value)
+    }
+
+    override fun flexGrow(value: String): Modifier {
+        return copyWith("flex-grow" to value)
+    }
+
+    override fun flexShrink(value: String): Modifier {
+        return copyWith("flex-shrink" to value)
+    }
+
+    override fun flexWrap(value: String): Modifier {
+        return copyWith("flex-wrap" to value)
+    }
+
+    override fun gridAutoColumns(value: String): Modifier {
+        return copyWith("grid-auto-columns" to value)
+    }
+
+    override fun gridAutoFlow(value: String): Modifier {
+        return copyWith("grid-auto-flow" to value)
+    }
+
+    override fun gridAutoRows(value: String): Modifier {
+        return copyWith("grid-auto-rows" to value)
+    }
+
+    override fun gridColumn(value: String): Modifier {
+        return copyWith("grid-column" to value)
+    }
+
+    override fun gridColumnEnd(value: String): Modifier {
+        return copyWith("grid-column-end" to value)
+    }
+
+    override fun gridColumnStart(value: String): Modifier {
+        return copyWith("grid-column-start" to value)
+    }
+
+    override fun gridRow(value: String): Modifier {
+        return copyWith("grid-row" to value)
+    }
+
+    override fun gridRowEnd(value: String): Modifier {
+        return copyWith("grid-row-end" to value)
+    }
+
+    override fun gridRowGap(value: String): Modifier {
+        return copyWith("grid-row-gap" to value)
+    }
+
+    override fun gridRowStart(value: String): Modifier {
+        return copyWith("grid-row-start" to value)
+    }
+
+    override fun gridTemplateColumns(value: String): Modifier {
+        return copyWith("grid-template-columns" to value)
+    }
+
+    override fun gridTemplateRows(value: String): Modifier {
+        return copyWith("grid-template-rows" to value)
+    }
+
+    override fun justifyContent(value: String): Modifier {
+        return copyWith("justify-content" to value)
+    }
+
+    override fun justifyItems(value: String): Modifier {
+        return copyWith("justify-items" to value)
+    }
+
+    override fun justifySelf(value: String): Modifier {
+        return copyWith("justify-self" to value)
+    }
+
+    override fun order(value: String): Modifier {
+        return copyWith("order" to value)
+    }
+
+    override fun overflowX(value: String): Modifier {
+        return copyWith("overflow-x" to value)
+    }
+
+    override fun overflowY(value: String): Modifier {
+        return copyWith("overflow-y" to value)
+    }
+
+    override fun textOverflow(value: String): Modifier {
+        return copyWith("text-overflow" to value)
+    }
+
+    override fun wordBreak(value: String): Modifier {
+        return copyWith("word-break" to value)
+    }
+
+    override fun boxShadow(value: String): Modifier {
+        return copyWith("box-shadow" to value)
+    }
+
+    override fun transform(value: String): Modifier {
+        return copyWith("transform" to value)
+    }
+
+    override fun transformOrigin(value: String): Modifier {
+        return copyWith("transform-origin" to value)
+    }
+
+    override fun transition(value: String): Modifier {
+        return copyWith("transition" to value)
+    }
+
+    override fun transitionDelay(value: String): Modifier {
+        return copyWith("transition-delay" to value)
+    }
+
+    override fun transitionDuration(value: String): Modifier {
+        return copyWith("transition-duration" to value)
+    }
+
+    override fun transitionProperty(value: String): Modifier {
+        return copyWith("transition-property" to value)
+    }
+
+    override fun transitionTimingFunction(value: String): Modifier {
+        return copyWith("transition-timing-function" to value)
     }
 
     override fun buildStyle(): String {
