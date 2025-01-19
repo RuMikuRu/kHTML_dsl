@@ -29,7 +29,7 @@ abstract class Tag(val name: String) : Element {
     override fun render(builder: StringBuilder, indent: String) {
         builder.append("$indent<$name${renderAttributes()}>\n")
         for (c in children) {
-            c.render(builder, indent + "  ")
+            c.render(builder, "$indent  ")
         }
         builder.append("$indent</$name>\n")
     }
@@ -71,12 +71,6 @@ class HTML : TagWithText("html") {
 }
 
 class Title : TagWithText("title")
-
-
-
-
-
-
 
 fun html(init: HTML.() -> Unit): HTML {
     val html = HTML()
