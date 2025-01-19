@@ -1,5 +1,7 @@
 package org.example.core.style
 
+//TODO сделать под типы
+
 interface Modifier {
     fun background(value: String): Modifier
     fun backgroundAttachment(value: String): Modifier
