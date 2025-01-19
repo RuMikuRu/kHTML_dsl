@@ -15,8 +15,7 @@ fun main() {
                 +"Hello world"
             }
             a(href = "https://google.com", modifier = Modifier.Default
-                .attribute("target", "_blank")
-                .margin("10px")) {
+                .margin("10px").fontSize("20px")) {
 
             }
         }

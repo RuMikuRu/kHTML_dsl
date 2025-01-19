@@ -1,7 +1,6 @@
 package org.example.core.model
 
 import org.example.core.style.Modifier
-import org.example.core.style.ModifierImpl
 
 interface Element {
     fun render(builder: StringBuilder, indent: String)
@@ -43,10 +42,13 @@ abstract class Tag(val name: String) : Element {
         return builder.toString()
     }
 
-    fun applyModifier(modifier: Modifier){
-        if(modifier is ModifierImpl){
-            attributes.putAll(modifier.build())
-        }
+    fun applyModifier(modifier: Modifier) {
+        val styleString = modifier.buildStyle()
+        attributes["style"] = mergeStyles(attributes["style"], styleString)
+    }
+
+    private fun mergeStyles(existing: String?, new: String): String {
+        return if (existing.isNullOrBlank()) new else "$existing; $new"
     }
 
     override fun toString(): String {

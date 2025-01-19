@@ -12,7 +12,7 @@ abstract class BodyTag(name: String) : TagWithText(name) {
     fun h5(init: H5.() -> Unit) = initTag(H5(), init)
     fun h6(init: H6.() -> Unit) = initTag(H6(), init)
     fun header(init: Header.() -> Unit) = initTag(Header(), init)
-    fun a(modifier: Modifier = Modifier.Default, href: String, init: A.() -> Unit) {
+    fun a(modifier: Modifier ,href: String, init: A.() -> Unit) {
         val a = initTag(A(), init)
         a.href = href
         a.applyModifier(modifier)
