@@ -154,7 +154,7 @@ interface Modifier {
     }
 }
 
-class ModifierImpl(private val styles: Map<String, String> = emptyMap()) : Modifier {
+open class ModifierImpl(open val styles: Map<String, String>) : Modifier {
     override fun background(value: String) = copyWith("background" to value)
 
     override fun backgroundAttachment(value: String) = copyWith("background-attachment" to value)
@@ -600,7 +600,7 @@ class ModifierImpl(private val styles: Map<String, String> = emptyMap()) : Modif
         return styles.entries.joinToString("; ") { "${it.key}: ${it.value}" }
     }
 
-    private fun copyWith(style: Pair<String, String>): Modifier {
+    protected open fun copyWith(style: Pair<String, String>): Modifier {
         return ModifierImpl(styles + style)
     }
 }
